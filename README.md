@@ -22,7 +22,7 @@ Installation
 To use parquet.js with node.js, install it using npm:
 
 ```
-  $ npm install parquetjs
+  $ npm install parquetjs-lite
 ```
 
 _parquet.js requires node.js >= 7.6.0_
@@ -35,7 +35,7 @@ Once you have installed the parquet.js library, you can import it as a single
 module:
 
 ``` js
-var parquet = require('parquetjs');
+var parquet = require('parquetjs-lite');
 ```
 
 Parquet files have a strict schema, similar to tables in a SQL database. So,
@@ -275,6 +275,12 @@ knowing about the structure and subtypes of all records (globally) means we do n
 have to duplicate this metadata (i.e. the field names) for every record. On top
 of that, knowing about the type of a field allows us to compress the remaining
 data more efficiently.
+
+
+Nested Lists for Hive / Athena
+-----------------------
+
+Lists have to be annotated to be queriable with AWS Athena.   See [parquet-format](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) for more detail and a full working example with comments in the test directory ([`test/list.js`](test/list.js))
 
 
 List of Supported Types & Encodings
